@@ -1,38 +1,118 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.frame {
+  width: 743px;
+  height: 91px;
+  background-color: rgba(53, 121, 245, 1);
+  border: 1px solid rgba(53, 121, 245, 1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px 0 10px;
+  color: rgba(255, 255, 255, 0.5)
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.frame__progress-container {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  position: relative;
+}
+
+p
+{
+  position: absolute;
+  font-size: 16px;
+  top: 10px;
+  left: 20px;
+}
+
+@keyframes fill {
+  to {
+    stroke-dashoffset: 0;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+:root {
+  --progress: 15;
+}
+
+.progress-circle {
+  animation: fill 2s ease-out forwards;
+  stroke-dashoffset: calc(100 - var(--progress));
+  z-index: 10;
+}
+
+svg {
+  position: absolute;
+  left: 0;
+}
+
+.frame__content {
+  width: 60%;
+  margin-left: 16px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.frame__content__done {
+  font-family: Inter;
+font-size: 15px;
+font-weight: 600;
+line-height: 20px;
+text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.frame__content__next-action {
+font-family: Inter;
+font-size: 12px;
+font-weight: 400;
+line-height: 18px;
+text-align: left;
 }
+
+.frame__content__button {
+  width: 76px;
+  height: 18px;
+  top: 12px;
+  left: 98px;
+  padding: 0px 10px 0px 10px;
+  gap: 10px;
+  border-radius: 40px;
+  border: 1px solid rgba(35, 100, 219, 1);
+  opacity: 0px;
+  outline: none;
+  background-color: rgba(35, 100, 219, 1);
+  color: inherit;
+font-family: Inter;
+font-size: 12px;
+font-weight: 400;
+line-height: 12px;
+text-align: center;
+}
+
+.frame__button {
+  background-color:rgba(244, 248, 255, 1);
+  margin-right: 18px;
+  width: 170px;
+  height: 40px;
+  color: rgba(71, 119, 237, 1);
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  border: 1px solid rgba(244, 248, 255, 1);
+  border-radius: 6px;
+  outline: none;
+  line-height: 14px;
+text-align: center;
+}
+
